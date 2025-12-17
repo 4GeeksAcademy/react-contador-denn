@@ -1,26 +1,24 @@
 import React from "react";
-
+ import { Digit } from "./Digit";
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+// import counter from "./Counter";
 
-//create your first component
-const Home = () => {
+
+const Home = ({ count }) => {
 	return (
 		<div className="text-center">
-            
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			
+			<div className="counter d-flex">
+				<Digit digit={Math.floor(count/100000)%10} />
+				<Digit digit={Math.floor(count/10000)%10} />
+				<Digit digit={Math.floor(count/1000)%10} />
+				<Digit digit={ Math.floor(count/100)%10} />
+				<Digit digit={ Math.floor(count/10)%10} />
+				<Digit digit={ Math.floor(count/1)%10 } />
+			</div>
+
 		</div>
 	);
 };
